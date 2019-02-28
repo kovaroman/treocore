@@ -60,7 +60,7 @@ Espo.define('treo-core:views/record/detail', 'class-replace!treo-core:views/reco
                 }
             });
 
-            if (!this.model.isNew() && this.getMetadata().get(['scopes', this.scope, 'advancedFilters'])) {
+            if (!this.model.isNew() && this.getMetadata().get(['scopes', this.scope, 'advancedEntityFieldsVisibility'])) {
                 this.listenTo(this, 'after:render', () => {
                     this.applyOverviewFilters();
                 });
@@ -101,6 +101,7 @@ Espo.define('treo-core:views/record/detail', 'class-replace!treo-core:views/reco
                 }
             });
 
+            this.dynamicLogic.process();
             this.model.trigger('overview-filters-applied');
         },
 

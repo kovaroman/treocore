@@ -86,27 +86,30 @@ Espo.define('treo-core:views/fields/dropdown-enum', 'view',
         },
 
         createFields() {
-            this.optionsList.forEach(option => {
-                if (option.name && option.field && (option.type || option.view)) {
-                    let views = ((this.getStorage().get(this.storageKey, this.scope) || {})[this.name] || {}).views || {};
-                    let dataKeys = this.getFieldManager().getActualAttributeList(option.type, option.name);
-                    dataKeys.forEach(key => {
-                        let value = typeof views[key] !== 'undefined' ? views[key] : option.default;
-                        this.setDataToModel({[key]: value});
-                    });
+            this.getModelFactory().create(null, model => {
+                this.optionsList.forEach(option => {
+                    if (option.name && option.field && (option.type || option.view)) {
+                        let views = ((this.getStorage().get(this.storageKey, this.scope) || {})[this.name] || {}).views || {};
+                        let dataKeys = this.getFieldManager().getActualAttributeList(option.type, option.name);
+                        dataKeys.forEach(key => {
+                            let value = typeof views[key] !== 'undefined' ? views[key] : option.default;
+                            this.setDataToModel({[key]: value});
+                            model.set({[key]: value});
+                        });
 
-                    let view = option.view || this.getFieldManager().getFieldView(option.type) || 'views/fields/base';
-                    this.createView(option.name, view, {
-                        el: `${this.options.el} .dropdown-enum-menu li a .field[data-name="${option.name}"]`,
-                        model: this.model,
-                        name: option.name,
-                        inlineEditDisabled: true,
-                        mode: 'edit',
-                        label: option.label
-                    }, view => {
-                        view.render();
-                    });
-                }
+                        let view = option.view || this.getFieldManager().getFieldView(option.type) || 'views/fields/base';
+                        this.createView(option.name, view, {
+                            el: `${this.options.el} .dropdown-enum-menu li a .field[data-name="${option.name}"]`,
+                            model: model,
+                            name: option.name,
+                            inlineEditDisabled: true,
+                            mode: 'edit',
+                            label: option.label
+                        }, view => {
+                            view.render();
+                        });
+                    }
+                });
             });
         },
 
@@ -138,7 +141,7 @@ Espo.define('treo-core:views/fields/dropdown-enum', 'view',
                     if (field) {
                         let fieldData = field.fetch();
                         this.setDataToModel(fieldData);
-                        currentFilterData.views = _.extend(currentFilterData.views, fieldData);
+                        currentFilterData.views = _.extend({}, currentFilterData.views, fieldData);
                     }
                 }
                 this.getStorage().set(this.storageKey, this.scope, _.extend(previousFilters, {[this.name]: currentFilterData}));
