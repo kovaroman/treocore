@@ -48,6 +48,12 @@ Espo.define('treo-core:views/header', 'class-replace!treo-core:views/header', fu
             }
         ],
 
+        data() {
+            return _.extend({
+                overviewFilters: this.overviewFilters
+            }, Dep.prototype.data.call(this));
+        },
+
         setup() {
             Dep.prototype.setup.call(this);
 

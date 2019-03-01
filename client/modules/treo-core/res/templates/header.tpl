@@ -39,16 +39,13 @@
             {{/if}}
             </div>
             <div class="pull-right">
-                <div class="cell filter-cell" data-name="fieldsFilter">
-                    <div class="field" data-name="fieldsFilter">
-                        {{{fieldsFilter}}}
+                {{#each overviewFilters}}
+                <div class="cell filter-cell" data-name="{{name}}">
+                    <div class="field" data-name="{{name}}">
+                        {{var name ../this}}
                     </div>
                 </div>
-                <div class="cell filter-cell" data-name="localesFilter">
-                    <div class="field" data-name="localesFilter">
-                        {{{localesFilter}}}
-                    </div>
-                </div>
+                {{/each}}
             </div>
         </div>
     </div>
