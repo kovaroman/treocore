@@ -1,4 +1,5 @@
-/*
+<?php
+/**
  * This file is part of EspoCRM and/or TreoPIM.
  *
  * EspoCRM - Open Source CRM application.
@@ -31,35 +32,32 @@
  * and "TreoPIM" word.
  */
 
-Espo.define('treo-core:views/module-manager/record/row-actions/store', 'views/record/row-actions/default',
-    Dep => Dep.extend({
+declare(strict_types=1);
 
-        disableActions: false,
+namespace Treo\Console;
 
-        setup() {
-            Dep.prototype.setup.call(this);
+/**
+ * Class NotificationTest
+ *
+ * @author r.ratsun@treolabs.com
+ */
+class NotificationTest extends \PHPUnit\Framework\TestCase
+{
+    /**
+     * Test is getDescription method exists
+     */
+    public function testIsGetDescriptionExists()
+    {
+        // test
+        $this->assertTrue(method_exists($this->createPartialMock(Notification::class, []), 'getDescription'));
+    }
 
-            this.listenTo(this.model.collection, 'disableActions', (disableActions) => {
-                this.disableActions = disableActions;
-                this.reRender();
-            });
-        },
-
-        getActionList() {
-            let list = [];
-            let versions = this.model.get('versions');
-            if (!this.disableActions && versions && versions.length && this.model.get('status') === 'available') {
-                list.push({
-                    action: 'installModule',
-                    label: 'installModule',
-                    data: {
-                        id: this.model.id,
-                        mode: 'install'
-                    }
-                });
-            }
-            return list;
-        },
-
-    })
-);
+    /**
+     * Test is run method exists
+     */
+    public function testIsRunExists()
+    {
+        // test
+        $this->assertTrue(method_exists($this->createPartialMock(Notification::class, []), 'run'));
+    }
+}

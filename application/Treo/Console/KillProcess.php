@@ -1,4 +1,5 @@
-/*
+<?php
+/**
  * This file is part of EspoCRM and/or TreoPIM.
  *
  * EspoCRM - Open Source CRM application.
@@ -31,35 +32,53 @@
  * and "TreoPIM" word.
  */
 
-Espo.define('treo-core:views/module-manager/record/row-actions/store', 'views/record/row-actions/default',
-    Dep => Dep.extend({
+declare(strict_types=1);
 
-        disableActions: false,
+namespace Treo\Console;
 
-        setup() {
-            Dep.prototype.setup.call(this);
+/**
+ * Class KillProcess
+ *
+ * @author r.ratsun <r.ratsun@treolabs.com>
+ */
+class KillProcess extends AbstractConsole
+{
+    /**
+     * @inheritdoc
+     */
+    public static function getDescription(): string
+    {
+        return 'Process killer.';
+    }
 
-            this.listenTo(this.model.collection, 'disableActions', (disableActions) => {
-                this.disableActions = disableActions;
-                this.reRender();
-            });
-        },
+    /**
+     * @inheritdoc
+     */
+    public function run(array $data): void
+    {
+        switch ($data['id']) {
+            case "treo-self-upgrade":
+                file_put_contents('data/kill-treo-self-upgrade.txt', '1');
+                self::show("Process 'treo-self-upgrade' killed successfully", self::SUCCESS, true);
 
-        getActionList() {
-            let list = [];
-            let versions = this.model.get('versions');
-            if (!this.disableActions && versions && versions.length && this.model.get('status') === 'available') {
-                list.push({
-                    action: 'installModule',
-                    label: 'installModule',
-                    data: {
-                        id: this.model.id,
-                        mode: 'install'
-                    }
-                });
-            }
-            return list;
-        },
+                break;
+            case "treo-module-update":
+                file_put_contents('data/kill-treo-module-update.txt', '1');
+                self::show("Process 'treo-module-update' killed successfully", self::SUCCESS, true);
 
-    })
-);
+                break;
+            case "treo-qm":
+                file_put_contents('data/kill-treo-qm.txt', '1');
+                self::show("Process 'treo-qm' killed successfully", self::SUCCESS, true);
+
+                break;
+            case "treo-notification":
+                file_put_contents('data/kill-treo-notification.txt', '1');
+                self::show("Process 'treo-notification' killed successfully", self::SUCCESS, true);
+
+                break;
+        }
+
+        self::show('No such process!', self::ERROR, true);
+    }
+}

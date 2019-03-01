@@ -1,4 +1,5 @@
-/*
+<?php
+/**
  * This file is part of EspoCRM and/or TreoPIM.
  *
  * EspoCRM - Open Source CRM application.
@@ -30,36 +31,25 @@
  * these Appropriate Legal Notices must retain the display of the "EspoCRM" word
  * and "TreoPIM" word.
  */
+declare(strict_types=1);
 
-Espo.define('treo-core:views/module-manager/record/row-actions/store', 'views/record/row-actions/default',
-    Dep => Dep.extend({
+namespace Treo\Migration;
 
-        disableActions: false,
+use Treo\Core\Migration\AbstractMigration;
 
-        setup() {
-            Dep.prototype.setup.call(this);
-
-            this.listenTo(this.model.collection, 'disableActions', (disableActions) => {
-                this.disableActions = disableActions;
-                this.reRender();
-            });
-        },
-
-        getActionList() {
-            let list = [];
-            let versions = this.model.get('versions');
-            if (!this.disableActions && versions && versions.length && this.model.get('status') === 'available') {
-                list.push({
-                    action: 'installModule',
-                    label: 'installModule',
-                    data: {
-                        id: this.model.id,
-                        mode: 'install'
-                    }
-                });
-            }
-            return list;
-        },
-
-    })
-);
+/**
+ * Version 3.7.0
+ *
+ * @author r.ratsun@treolabs.com
+ */
+class V3Dot7Dot0 extends AbstractMigration
+{
+    /**
+     * Up to current
+     */
+    public function up(): void
+    {
+        file_put_contents('data/notReadCount.json', '{}');
+        file_put_contents('data/popupNotifications.json', '{}');
+    }
+}
