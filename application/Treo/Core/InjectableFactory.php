@@ -34,33 +34,28 @@
 
 declare(strict_types=1);
 
-namespace Treo\Core\Loaders;
-
-use PHPUnit\Framework\TestCase;
-use Treo\Core\Utils\LabelManager as Instance;
-use Treo\Core\Container;
+namespace Treo\Core;
 
 /**
- * Class LabelManagerTest
+ * Class InjectableFactory
  *
  * @author r.zablodskiy@treolabs.com
  */
-class LabelManagerTest extends TestCase
+class InjectableFactory extends \Espo\Core\InjectableFactory
 {
     /**
-     * Test load method
+     * @inheritdoc
      */
-    public function testLoadMethod()
+    public function createByClassName($className)
     {
-        $mock = $this->createPartialMock(LabelManager::class, ['getContainer']);
-        $container = $this->createPartialMock(Container::class, []);
+        if (strpos($className, 'Espo') !== false) {
+            $treoClassName = str_replace('Espo', 'Treo', $className);
 
-        $mock
-            ->expects($this->any())
-            ->method('getContainer')
-            ->willReturn($container);
+            if (class_exists($treoClassName)) {
+                $className = $treoClassName;
+            }
+        }
 
-        // test
-        $this->assertInstanceOf(Instance::class, $mock->load());
+        return parent::createByClassName($className);
     }
 }
