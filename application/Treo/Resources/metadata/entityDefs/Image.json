@@ -3,7 +3,9 @@
     "name": {
       "type": "varchar",
       "required": true,
-      "trim": true
+      "trim": true,
+      "layoutMassUpdateDisabled": true,
+      "view": "treo-core:views/fields/image-code-name"
     },
     "description": {
       "type": "text"
@@ -16,13 +18,12 @@
       "type": "url",
       "required": true
     },
-    "isLink": {
-      "type": "bool"
-    },
     "imageFile": {
       "type": "image",
       "previewSize": "small",
-      "required": true
+      "required": true,
+      "layoutMassUpdateDisabled": true,
+      "view": "treo-core:views/fields/remote-image"
     },
     "mimeType": {
       "type": "varchar",
@@ -67,6 +68,39 @@
     "teams": {
       "type": "linkMultiple",
       "view": "views/fields/teams"
+    },
+    "imagesMultiple": {
+      "layoutListDisabled": true,
+      "layoutMassUpdateDisabled": true,
+      "type": "attachmentMultiple",
+      "required": true,
+      "sourceList": []
+    },
+    "type": {
+      "type": "enum",
+      "required": true,
+      "options": [
+        "File",
+        "Files",
+        "Link"
+      ],
+      "default": "File",
+      "layoutMassUpdateDisabled": true
+    },
+    "state": {
+      "type": "enum",
+      "required": true,
+      "options": [
+        "uploaded",
+        "processed"
+      ],
+      "optionColors": {
+        "uploaded": "FFE900",
+        "processed": "00FF37"
+      },
+      "default": "uploaded",
+      "isSorted": false,
+      "layoutMassUpdateDisabled": true
     }
   },
   "links": {

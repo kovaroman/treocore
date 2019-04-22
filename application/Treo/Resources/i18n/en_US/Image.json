@@ -8,7 +8,22 @@
     "size": "Size",
     "imageFile": "File",
     "imageLink": "Link",
-    "isLink": "Is link"
+    "imagesMultiple": "Multiple images"
+  },
+  "options": {
+    "type": {
+      "File": "File",
+      "Files": "Files",
+      "Link": "Link"
+    },
+    "state": {
+      "uploaded": "uploaded",
+      "processed": "processed"
+    },
+    "scope": {
+      "Global": "Global",
+      "Channel": "Channel"
+    }
   },
   "links": [],
   "labels": {

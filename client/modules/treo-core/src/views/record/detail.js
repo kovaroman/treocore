@@ -109,7 +109,7 @@ Espo.define('treo-core:views/record/detail', 'class-replace!treo-core:views/reco
 
         getAlternativeValues(fieldView) {
             let values = [];
-            if (fieldView.name === 'image') {
+            if (fieldView.name === 'imageFile') {
                 values.push(fieldView.urlImage);
             }
             return values;

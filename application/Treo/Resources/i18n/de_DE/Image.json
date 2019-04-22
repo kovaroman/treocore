@@ -8,7 +8,22 @@
     "size": "Größe",
     "imageFile": "Datei",
     "imageLink": "Link",
-    "isLink": "Ist link"
+    "imagesMultiple": "Mehrere Bilder"
+  },
+  "options": {
+    "type": {
+      "File": "Datei",
+      "Files": "Dateien",
+      "Link": "Link"
+    },
+    "state": {
+      "uploaded": "hochgeladen",
+      "processed": "bearbeitet"
+    },
+    "scope": {
+      "Global": "Global",
+      "Channel": "Kanal"
+    }
   },
   "links": [],
   "labels": {

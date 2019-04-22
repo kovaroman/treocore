@@ -1,50 +1,37 @@
 [
   {
+    "label": "Overview",
+    "style": "default",
     "rows": [
       [
         {
-          "name": "name"
+          "name": "type"
         },
-        {
-          "name": "isLink"
-        }
+        false
       ],
       [
         {
           "name": "imageFile"
-        },
-        false
+        }
       ],
       [
         {
           "name": "imageLink"
-        },
-        false
+        }
+      ],
+      [
+        {
+          "name": "imagesMultiple"
+        }
       ],
       [
         {
           "name": "alt"
         },
-        false
-      ],
-      [
         {
-          "name": "mimeType"
-        },
-        {
-          "name": "size"
-        }
-      ],
-      [
-        {
-          "name": "width"
-        },
-        {
-          "name": "height"
+          "name": "name"
         }
       ]
-    ],
-    "style": "default",
-    "label": "Overview"
+    ]
   }
 ]

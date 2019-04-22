@@ -10,8 +10,17 @@
         "visible": {
           "conditionGroup": [
             {
-              "type": "isTrue",
-              "attribute": "isLink"
+              "type": "equals",
+              "attribute": "type",
+              "value": "Link"
+            }
+          ]
+        },
+        "readOnly": {
+          "conditionGroup": [
+            {
+              "type": "isNotEmpty",
+              "attribute": "id"
             }
           ]
         }
@@ -20,8 +29,60 @@
         "visible": {
           "conditionGroup": [
             {
-              "type": "isFalse",
-              "attribute": "isLink"
+              "type": "equals",
+              "attribute": "type",
+              "value": "File"
+            }
+          ]
+        },
+        "readOnly": {
+          "conditionGroup": [
+            {
+              "type": "isNotEmpty",
+              "attribute": "id"
+            }
+          ]
+        }
+      },
+      "name": {
+        "visible": {
+          "conditionGroup": [
+            {
+              "type": "notEquals",
+              "attribute": "type",
+              "value": "Files"
+            }
+          ]
+        }
+      },
+      "alt": {
+        "visible": {
+          "conditionGroup": [
+            {
+              "type": "notEquals",
+              "attribute": "type",
+              "value": "Files"
+            }
+          ]
+        }
+      },
+      "imagesMultiple": {
+        "visible": {
+          "conditionGroup": [
+            {
+              "type": "equals",
+              "attribute": "type",
+              "value": "Files"
+            }
+          ]
+        }
+      },
+      "type": {
+        "readOnly": {
+          "conditionGroup": [
+            {
+              "type": "isNotEmpty",
+              "attribute": "id"
             }
           ]
         }
