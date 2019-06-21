@@ -75,13 +75,15 @@ In the Queue Manager you will see the most recent TreoCore operations, which wer
 
 ### Quick Create
 
+> The quick create function is enabled by the administrator.<br/>
+
 To create new records from anywhere, click the quick create icon in the upper right corner of the taskbar on any TreoCore page and choose the entity for the record to be created:
 
 ![Quick Create](../../_assets/user-interface/quick-create.jpg)
 
 The [quick create view](#quick-create-view) page will be opened.
 
-_**NOTE:**_ *To modify (extend or shorten) the entity list available in the quick create menu, please, contact your administrator.*
+>To modify (extend or shorten) the entity list available in the quick create menu, please, contact your administrator.<br/>
 
 ## Search and Filtering Panel
 
@@ -90,15 +92,18 @@ Searching and filtering allow you to quickly focus on the records you want to se
 Search and filtering sections are automatically available on each entity list view:
 
 ![Search and filtering](../../_assets/user-interface/search-filter.jpg) 
-*Search and filter on the products list view page*
+
+*Search and filter on the users list view page*
 
 Searching works on the current entity records, while filtering works also on the related records, which are configured by the administrator.
 
 To perform a search operation, enter your search query into the corresponding field and hit the "Enter" key on your keyboard or click the ![search-button](../../_assets/user-interface/search-button.jpg) button.
 
-To filter your entity records, open the filter drop-down list and set the desired checkbox(es). To clear all filters, click the "Reset" button, located to the right of the search field:
+To filter your entity records, open the filter drop-down list and set the desired checkbox(es):
 
-![Search and Filtering Panel](../../_assets/user-interface/search-and-filtering-panel.jpg) 
+![Search and Filtering Panel](../../_assets/user-interface/search-and-filtering-panel.jpg)
+
+To clear all filters, click the "Reset" button, located to the right of the search field.
 
 Use the [global search](#global-search) if you wish to search globally across all the entities in the system.
 
@@ -106,14 +111,12 @@ By default, search is performed through all the records, which attributes start 
 
 The fields available for searching can be configured by developers in the metadata of the appropriate entity.
 
-You can have one or more filters based on a certain field for all field types besides the following:
+You can have one or more filters based on a certain field for all field types. The exception is field types that can be used as a filter only once (because there is no need for it), which are:
   - Boolean;
   - Array;
   - Multi-Enum;
   - Enum;
   - Related entities.
-
-A field of any of these types can be used as a filter only once, because there is no need for it.
 
 ### Logical Operators
 
@@ -275,11 +278,17 @@ By default, your **user profile** is opened:
 
 #### User Profile
 
-Click the "Access" button to see your current permissions within the system:
+Click the "Access" button to view your current permissions within the TreoCore system on the scope and field levels in the pop-up window that appears:
 
-![User Access Menu](../../_assets/user-interface/user-access-menu.jpg)
+![User Access Window](../../_assets/user-interface/user-access-window.jpg)
 
-_**NOTE:**_ *By default, users have access to changing their password only. To receive more permissions, please, contact your administrator.*
+>Access rights are modified by the administrator only.<br/>
+
+Click the ![Actions button](../../_assets/user-interface/actions-button.jpg) button to see the list of actions available for the currently open entity:
+
+![User Actions Menu](../../_assets/user-interface/user-actions-menu.jpg)
+
+>By default, users have access to changing their password only. To receive more permissions, please, contact your administrator. <br/>
 
 To change your user password, select the corresponding option in the "Access" drop-down list and complete the operation on the "Change Password" page:
 
@@ -339,7 +348,7 @@ Select the "Custom Tab List" checkbox to enable a custom navigation menu. Using 
 
 The same options are available on the TreoCore starting page:
 
-![PIM dashboard editing](../../_assets/user-interface/pim-dashboard-edit.jpg)
+![Core dashboard editing](../../_assets/user-interface/core-dashboard-edit.jpg)
 
 Click the editing button and enter a name for your dashboard in the corresponding field of the "Edit dashboard" pop-up page and hit "Enter":
 
@@ -352,6 +361,8 @@ Using the ![Add button](../../_assets/user-interface/add-button.jpg) button add 
 To rearrange your dashboard view, drag-and-drop the dashlets right on the "User interface" panel:
 
 ![Dashlets order](../../_assets/user-interface/dashlets-order.jpg)
+
+Alternatively, you can customize your dashboard view in the same way on the TreoCore starting page.
 
 ### Last Viewed
 
@@ -388,13 +399,7 @@ Dashlets provide users with valuable information regarding records of specific e
 #### Available Dashlets
 
 The following dashlets are available in TreoCore out-of-the-box:
-- Channels
-- General Statistics
 - My Inbox
-- Product Status Overview
-- Product Types
-- Product by Status
-- Product by Tag
 - Record List
 - Stream
 
@@ -441,7 +446,9 @@ Mass actions are to be applied to several selected entity records, i.e. records 
 
 ![Mass Actions](../../_assets/user-interface/mass-actions.jpg)
 
-By default, the following mass actions are available for all entities: 
+By default, the following mass actions are available for all entities:
+- **Remove** – to remove the selected entity record(s).
+- **Merge** – to merge the selected entity records.
 - **Mass Update** – to update several selected entity records at once.
 - **Export** – to export the desired data fields of the selected entity records in the XLSX or CSV format.
 
@@ -451,7 +458,7 @@ If your entity is related to other entities in the system, the "Actions" menu ex
 
 ![Mass Actions Expanded](../../_assets/user-interface/mass-actions-expanded.jpg)
 
-_**NOTE:**_ *Please, keep in mind that no related entities are exported.*
+>Please, keep in mind that no related entities are exported.<br/>
 
 _**TIP:**_ *For more advanced export features, please, use the Export Feed module.*
 
@@ -464,6 +471,7 @@ To see the available single record actions list, click the select icon on the ri
 By default, the following actions are available for all entities:
 - **View** – to go to the detail view of the record.
 - **Edit** – to go to the detail view of the record in the edit mode.
+- **Remove** – to remove the record; needs confirmation.
 
 _**TIP:**_ *Please contact your developer if you want to extend the single record actions list.*
 
@@ -474,6 +482,8 @@ The detail view is shown in the main window and has its own layout, which could 
 ![Detail View](../../_assets/user-interface/detail-view.jpg)
 
 You can start following the entity record right on the detail view page. To do this, click the ![Follow button](../../_assets/user-interface/follow-button.jpg) button, placed in the upper right corner of your detail view page. It will turn into ![Followed button](../../_assets/user-interface/followed-button.jpg). Click this button again to stop following the entity record.
+
+> This option is available only when the "Stream" checkbox is activated for the given entity by the administrator in the Entity Manager. <br/>
 
 Navigation through the existing entity records can be done on the detail view pages using the corresponding buttons: 
 
@@ -486,6 +496,7 @@ To edit the fields data on the detail view page, use [in-line editing](#in-line-
 The following actions are available for all entity records by default:
 
 - **Edit** – click the "Edit" button to make changes in the given record.
+- **Remove** – to remove the record; needs confirmation.
 - **Duplicate** – select the "Duplicate" option from the "Edit" drop-down list to go to the record creation page and enter the unique values for the record fields to be used for duplication. 
 
 ### Small List Views
@@ -498,7 +509,7 @@ The following actions are available for the small list view panels:
   - *Refresh* – to refresh the related entities list on the panel;
   - *Create new* – to create a new record for the related entity;
   - *Select* – to create a relation between the entity record, which is opened in the main window and the entity record, which was chosen in the pop-up window. 
-  _**NOTE:**_ *Please, keep in mind that choosing some record in the pop-up window will reassign this record to the entity record, which is opened in the main window. The previous relation will be dropped, if the relation is one-to-many retrospectively.*
+>Please, keep in mind that choosing some record in the pop-up window will reassign this record to the entity record, which is opened in the main window. The previous relation will be dropped, if the relation is one-to-many retrospectively.<br/>
  
 - **Single record actions** – applicable to each record of the related entities separately. The ist of actions here is usually the same as on the list view for this entity.
     ![Related entity single actions](../../_assets/user-interface/related-entity-actions-single.jpg)
@@ -517,7 +528,7 @@ The following information is available by default on the side view panel:
  - **Modified** – the date and time of the record modification, not changeable.
  - **Followers** – who is following the changes in the record.
 
-TreoCore modules can add additional panels to the side view panel.
+TreoCore modules can add more panels to the side view panel.
 
 ### Edit View
 
