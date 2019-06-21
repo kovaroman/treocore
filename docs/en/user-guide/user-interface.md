@@ -87,7 +87,7 @@ The [quick create view](#quick-create-view) page will be opened.
 
 ## Search and Filtering Panel
 
-Searching and filtering allow you to quickly focus on the records you want to see. The description of various searching and filtering options available for you in the TreoPIM system is given below. 
+Searching and filtering allow you to quickly focus on the records you want to see. The description of various searching and filtering options available for you in the TreoCore system is given below. 
 
 Search and filtering sections are automatically available on each entity list view:
 
@@ -196,16 +196,11 @@ Depending of the field type, you can apply the following filtering criteria:
 |                                             | Is Empty               | –                                                          |
 |                                             | Is Not Empty           | –                                                          |
 |                                             | None Of                | Related entity records, multiselect                        |
-| *Related Entity  (as n:m relation)*         | Is                     | Related entity record, select                              |
-|                                             | Any Of                 | Related entity records, multiselect                        |
-|                                             | Is Empty               |                                                            |
-|                                             | Is Not Empty           |                                                            |
-|                                             | None Of                | Related entity records, multiselect                        |
 | *Image, File, Attachment Multiple*          | –                      | Filtering for these field types is not possible  (for now) |
 
 ### Automatic Search Mask Recognition *(in development)*
 
-TreoCore has automatic search mask recognition. This can be considered as a quick search function, i.e. when you start typing, TreoPIM automatically determines the search mask type of your search string. Automatic search mask recognition is available for the following fields: Text, Number, Date, and Time.
+TreoCore has automatic search mask recognition. This can be considered as a quick search function, i.e. when you start typing, TreoCore automatically determines the search mask type of your search string. Automatic search mask recognition is available for the following fields: Text, Number, Date, and Time.
 
 Depending on the search mask type, the system searches through all entity fields of the appropriate field type. A pop-up with auto-suggestions appears with the information about field name and amount of search results for this field, i.e. "Address: 3 results", and the text link(s) to show the results.
 
@@ -527,6 +522,8 @@ The following information is available by default on the side view panel:
  - **Created** – the date and time of the record creation, as well as its author; not changeable.
  - **Modified** – the date and time of the record modification, not changeable.
  - **Followers** – who is following the changes in the record.
+
+>The "Owner", "Assigned user", and "Teams" fields are enabled/disabled by the administrator. <br/>
 
 TreoCore modules can add more panels to the side view panel.
 
