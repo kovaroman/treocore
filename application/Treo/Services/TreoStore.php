@@ -150,9 +150,9 @@ class TreoStore extends \Espo\Core\Templates\Services\Base
     }
 
     /**
-     * @return string
+     * @return string|bool
      */
-    protected function getRemotePackages(): string
+    protected function getRemotePackages()
     {
         // prepare params
         $params = [
