@@ -66,7 +66,7 @@ class Base extends \Espo\Core\Templates\Services\Base
      * Is code valid
      *
      * @param Entity $entity
-     * @param Entity $entity
+     * @param string $key
      *
      * @return bool
      */
@@ -110,16 +110,21 @@ class Base extends \Espo\Core\Templates\Services\Base
     }
 
     /**
-     * Translate
+     * Text translate action
      *
-     * @param string $key
      * @param string $label
+     * @param string $category
      * @param string $scope
+     * @param array|null $requiredOptions
      *
      * @return string
      */
-    protected function translate(string $key, string $label, $scope = 'Global'): string
-    {
-        return $this->getInjection('language')->translate($key, $label, $scope);
+    protected function translate(
+        string $label,
+        string $category = 'labels',
+        string $scope = 'Global',
+        array $requiredOptions = null
+    ): string {
+        return $this->getInjection('language')->translate($label, $category, $scope, $requiredOptions);
     }
 }
